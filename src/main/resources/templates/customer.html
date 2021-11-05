@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+	  <head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Customers</title>
+ 	</head>
+  	<body>
+		<table>
+		  	<tr>
+		    	<th>id</th>
+		    	<th>name</th>
+		    	<th>street</th>
+		    	<th>city</th>
+		    	<th>memo</th>
+		  	</tr>
+			<tr>
+		    	<td th:text="${customer.id}">id</td>
+		    	<td th:text="${customer.name}">name</td>
+		    	<td th:text="${customer.street}">street</td>
+		    	<td th:text="${customer.city}">city</td>
+		    	<td>
+		    		<ul th:each="memo: ${customer.memos}">
+		    			<li th:text="${memo.memo}" />
+		    			<li th:text="${memo.date}" />
+		    		</ul>
+		    	</td>
+		    	<td><a th:href="@{'/web/customers/' + ${customer.id} + '/delete'}" th:text="delete" /> </td>
+			</tr>
+			
+				
+			
+			
+		</table>
+	</body>
+</html>
